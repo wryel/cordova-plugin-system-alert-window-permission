@@ -20,7 +20,7 @@
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SystemAlertWindowPermission">
-                <param name="android-package" value="com.wryel.android.plugin.systemalertwindowpermission.SystemAlertWindowPermissionPlugin" />
+                <param name="android-package" value="com.wryel.android.cordova.plugin.systemalertwindowpermission.SystemAlertWindowPermissionPlugin" />
             </feature>
         </config-file>
 
@@ -28,7 +28,7 @@
             <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
         </config-file>
 
-        <source-file src="src/android/com/wryel/android/plugin/systemalertwindowpermission/SystemAlertWindowPermissionPlugin.java" target-dir="src/com/wryel/android/plugin/systemalertwindowpermission/" />
+        <source-file src="src/android/com/wryel/android/cordova/plugin/systemalertwindowpermission/SystemAlertWindowPermissionPlugin.java" target-dir="src/com/wryel/android/cordova/plugin/systemalertwindowpermission/" />
 
     </platform>
 
