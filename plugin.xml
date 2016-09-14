@@ -13,7 +13,7 @@
     <asset src="www/systemAlertWindowPermission.js" target="js/systemAlertWindowPermission.js" />
 
     <js-module src="www/systemAlertWindowPermission.js" name="systemAlertWindowPermission">
-        <clobbers target="systemAlertWindowPermission" />
+        <clobbers target="cordova.plugins.systemAlertWindowPermission" />
     </js-module>
 
     <platform name="android">
