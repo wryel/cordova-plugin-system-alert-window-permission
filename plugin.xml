@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin
+    xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="cordova-plugin-system-alert-window-permission"
+    version="0.0.1">
+
+    <name>SystemAlertWindowPermissionPlugin</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.4.0"/>
+    </engines>
+
+    <asset src="www/systemAlertWindowPermission.js" target="js/systemAlertWindowPermission.js" />
+
+    <js-module src="www/systemAlertWindowPermission.js" name="systemAlertWindowPermission">
+        <clobbers target="systemAlertWindowPermission" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SystemAlertWindowPermission">
+                <param name="android-package" value="com.wryel.android.plugin.systemalertwindowpermission.SystemAlertWindowPermissionPlugin" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+        </config-file>
+
+        <source-file src="src/android/com/wryel/android/plugin/systemalertwindowpermission/SystemAlertWindowPermissionPlugin.java" target-dir="src/com/wryel/android/plugin/systemalertwindowpermission/" />
+
+    </platform>
+
+</plugin>

@@ -1,0 +1,1 @@
+# cordova-plugin-system-alert-window-permission
