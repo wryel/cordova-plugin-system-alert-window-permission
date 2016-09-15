@@ -11,8 +11,6 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.util.concurrent.ThreadPool;
-
 public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
 
     private CallbackContext callbackContext = null;
