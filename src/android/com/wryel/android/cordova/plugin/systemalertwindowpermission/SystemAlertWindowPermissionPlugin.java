@@ -38,7 +38,7 @@ public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
     public static final int REQUEST_SYSTEM_ALERT_WINDOW = 1;
 
     @Override
-    public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray data, final CallbackContext callbackContext) throws JSONException {
 
         boolean success = true;
 
@@ -54,7 +54,7 @@ public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
 
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
-                    this.callbackContext = callbackContext;
+                    SystemAlertWindowPermissionPlugin.this.callbackContext = callbackContext;
                     requestPermission();
                 }
             });
