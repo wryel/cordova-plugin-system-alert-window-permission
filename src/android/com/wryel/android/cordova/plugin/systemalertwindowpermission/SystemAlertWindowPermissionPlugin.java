@@ -11,6 +11,8 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.concurrent.ThreadPool;
+
 public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
 
     /* methods */
@@ -38,17 +40,28 @@ public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
 
         if (ACTION_HAS_PERMISSION.equals(action)) {
 
-            callbackContext.success(hasPermission());
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    callbackContext.success(hasPermission());
+                }
+            });
 
         } else if (ACTION_REQUEST_PERMISSION.equals(action)) {
 
-            requestPermission();
-
-            callbackContext.success();
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    requestPermission();
+                    callbackContext.success();
+                }
+            });
 
         } else {
 
-            callbackContext.error(INVALID_ACTION);
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    callbackContext.error(INVALID_ACTION);
+                }
+            });
 
             success = false;
 
