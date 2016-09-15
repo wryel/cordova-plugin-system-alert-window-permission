@@ -36,7 +36,7 @@ public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
     public static final int REQUEST_SYSTEM_ALERT_WINDOW = 1;
 
     @Override
-    public boolean execute(String action, JSONArray data, final CallbackContext callbackContext) throws JSONException {
+    public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext) throws JSONException {
 
         boolean success = true;
 
@@ -73,6 +73,7 @@ public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
     }
 
     protected int hasPermission() {
+
         if (Build.VERSION.SDK_INT < ANDROID_VERSION_MARSHMALLOW) {
             return TRUE;
         } else {
@@ -81,6 +82,7 @@ public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
     }
 
     protected void requestPermission() {
+
         if (Build.VERSION.SDK_INT >= ANDROID_VERSION_MARSHMALLOW) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + cordova.getActivity().getPackageName()));
             cordova.startActivityForResult((CordovaPlugin) this, intent, REQUEST_SYSTEM_ALERT_WINDOW);
@@ -96,7 +98,8 @@ public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
 
         if (requestCode == REQUEST_SYSTEM_ALERT_WINDOW) {
             this.callbackContext.success(hasPermission());
-            this.callbackContext = null;
         }
+
+        this.callbackContext = null;
     }
 }
