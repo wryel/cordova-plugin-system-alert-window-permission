@@ -85,7 +85,7 @@ public class SystemAlertWindowPermissionPlugin extends CordovaPlugin {
     protected void requestPermission() {
         if (Build.VERSION.SDK_INT >= ANDROID_VERSION_MARSHMALLOW) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + cordova.getActivity().getPackageName()));
-            cordova.getActivity().startActivityForResult((CordovaPlugin) this, intent, REQUEST_SYSTEM_ALERT_WINDOW);
+            cordova.startActivityForResult((CordovaPlugin) this, intent, REQUEST_SYSTEM_ALERT_WINDOW);
         }
     }
 
